@@ -1,0 +1,17 @@
+{
+  "name": "scss-assert-directions",
+  "description": "Map values in clock-wise positions",
+  "main": "_assert-directions.scss",
+  "authors": [
+    "Nicolas Müller Noulezas"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "scss",
+    "css",
+    "shorthand",
+    "function",
+    "directions"
+  ],
+  "homepage": "https://github.com/nicolasmn/scss-assert-directions#readme"
+}

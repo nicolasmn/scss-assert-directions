@@ -1,0 +1,38 @@
+/// Assert Directions
+/// @author Nicolas Müller Noulezas
+
+/// Maps values in clock-wise order
+/// @param {List} $values - Values to map in clockwise order
+/// @return {Map}         - Values mapped to directions
+@function assert-directions($values) {
+  $dir-mappings: (
+    1: top right bottom left,
+    2: (top bottom) (right left),
+    3: top (right left) bottom,
+    4: top right bottom left
+  );
+  $dir-mapping: map-get($dir-mappings, length($values));
+
+  $index: 1;
+  $map: ();
+
+  @each $direction in $dir-mapping {
+    $value: if(type-of($values) == list, nth($values, $index), $values);
+
+    @if $value {
+      @if type-of($direction) == list {
+        @each $sub-direction in $direction {
+          $map: map-merge($map, ($sub-direction: $value));
+        }
+      }
+
+      @else {
+        $map: map-merge($map, ($direction: $value));
+      }
+    }
+
+    $index: $index + 1;
+  }
+
+  @return $map;
+}
