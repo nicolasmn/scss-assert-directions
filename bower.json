@@ -13,5 +13,12 @@
     "function",
     "directions"
   ],
-  "homepage": "https://github.com/nicolasmn/scss-assert-directions#readme"
+  "homepage": "https://github.com/nicolasmn/scss-assert-directions#readme",
+  "ignore": [
+    ".gitignore",
+    ".travis.yml",
+    "package.json",
+    "sache.json",
+    "test"
+  ]
 }
