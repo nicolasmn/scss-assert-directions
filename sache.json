@@ -1,0 +1,9 @@
+{
+  "name": "scss-assert-directions",
+  "description": "Map values in clock-wise positions",
+  "tags": [
+    "shorthand",
+    "function",
+    "directions"
+  ]
+}
