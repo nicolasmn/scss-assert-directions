@@ -5,34 +5,38 @@
 /// @param {List} $values - Values to map in clockwise order
 /// @return {Map}         - Values mapped to directions
 @function assert-directions($values) {
-  $dir-mappings: (
+  // These are CSSs default direction mappings
+  $direction-mappings: (
     1: top right bottom left,
     2: (top bottom) (right left),
     3: top (right left) bottom,
     4: top right bottom left
   );
-  $dir-mapping: map-get($dir-mappings, length($values));
-
-  $index: 1;
-  $map: ();
-
-  @each $direction in $dir-mapping {
+  // Get the mapping we need by the length of passed values
+  $direction-mapping: map-get($direction-mappings, length($values));
+  // Here we are going to build the map with asserted directions
+  $mapped-directions: ();
+  // Loop through direction mapping and assign the passed values
+  @for $index from 1 through length($direction-mapping) {
+    // Get direction via current index
+    $direction: nth($direction-mapping, $index);
+    // Get value from list via current index or just reassign
+    // from `$values`
     $value: if(type-of($values) == list, nth($values, $index), $values);
-
+    // Skip falsey values (`0` isn't considered falsey in Sass)
     @if $value {
+      // See if current direction is a list, such as `(top bottom)`
+      // and if so, assign the value to each direction in the list
       @if type-of($direction) == list {
         @each $sub-direction in $direction {
-          $map: map-merge($map, ($sub-direction: $value));
+          $mapped-directions: map-merge($mapped-directions, ($sub-direction: $value));
         }
       }
-
+      // Assign the value to a single direction
       @else {
-        $map: map-merge($map, ($direction: $value));
+        $mapped-directions: map-merge($mapped-directions, ($direction: $value));
       }
     }
-
-    $index: $index + 1;
   }
-
-  @return $map;
+  @return $mapped-directions;
 }
