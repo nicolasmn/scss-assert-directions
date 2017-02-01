@@ -22,6 +22,11 @@
     // Testing four values
     $test: assert-directions(10px 20px 15px 5px);
     $expect: (top: 10px, right: 20px, bottom: 15px, left: 5px);
-    @include assert-equal($test, $expect, 'Returns the four values mapped to top, right, bottom, left');
+    @include assert-equal($test, $expect, 'Returns the four values mapped to top, right, bottom and left');
+
+    // Testing null values
+    $test: assert-directions(10px null 5px);
+    $expect: (top: 10px, bottom: 5px);
+    @include assert-equal($test, $expect, 'Returns the two values mapped to top and bottom');
   }
 }
