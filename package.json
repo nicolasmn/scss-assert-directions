@@ -1,6 +1,6 @@
 {
   "name": "scss-assert-directions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Map values in clock-wise positions",
   "main": "_assert-directions.scss",
   "scripts": {
