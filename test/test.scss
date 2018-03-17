@@ -1,33 +1,33 @@
 @import "true";
 @import "../assert-directions";
 
-@include test-module('Assert Directions [function]') {
+@include describe('Assert Directions [function]') {
 
-  @include test('Maps single values to top, right, bottom and left') {
+  @include it('Maps single values to top, right, bottom and left') {
     $test: assert-directions(10px);
     $expect: (top: 10px, right: 10px, bottom: 10px, left: 10px);
     @include assert-equal($test, $expect);
   }
 
-  @include test('Maps two values to top/bottom and left/right') {
+  @include it('Maps two values to top/bottom and left/right') {
     $test: assert-directions(10px 20px);
     $expect: (top: 10px, bottom: 10px, left: 20px, right: 20px);
     @include assert-equal($test, $expect);
   }
 
-  @include test('Maps three values to top, left/right and bottom') {
+  @include it('Maps three values to top, left/right and bottom') {
     $test: assert-directions(10px 20px 15px);
     $expect: (top: 10px, right: 20px, left: 20px, bottom: 15px);
     @include assert-equal($test, $expect);
   }
 
-  @include test('Maps four values to top, right, bottom and left') {
+  @include it('Maps four values to top, right, bottom and left') {
     $test: assert-directions(10px 20px 15px 5px);
     $expect: (top: 10px, right: 20px, bottom: 15px, left: 5px);
     @include assert-equal($test, $expect);
   }
 
-  @include test('Skips falsey values') {
+  @include it('Skips falsey values') {
     $test: assert-directions(10px null 5px);
     $expect: (top: 10px, bottom: 5px);
     @include assert-equal($test, $expect);
