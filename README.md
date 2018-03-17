@@ -1,4 +1,4 @@
-# Assert Directions ![](https://travis-ci.org/nicolasmn/scss-assert-directions.svg)
+# Assert Directions [![Build status](https://travis-ci.org/nicolasmn/scss-assert-directions.svg)](https://travis-ci.org/nicolasmn/scss-assert-directions)
 
 Map values in clock-wise positions like CSS does it. Quoting from MDN:
 - **One** single value applies to all **four sides**.
