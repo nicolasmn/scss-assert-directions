@@ -1,32 +1,35 @@
 @import "true";
 @import "../assert-directions";
 
-@include test-module('Library') {
+@include test-module('Assert Directions [function]') {
 
-  @include test('Assert Directions [function]') {
-    // Testing single value
+  @include test('Maps single values to top, right, bottom and left') {
     $test: assert-directions(10px);
     $expect: (top: 10px, right: 10px, bottom: 10px, left: 10px);
-    @include assert-equal($test, $expect, 'Returns the single value mapped to top, right, bottom and left');
+    @include assert-equal($test, $expect);
+  }
 
-    // Testing two values
+  @include test('Maps two values to top/bottom and left/right') {
     $test: assert-directions(10px 20px);
     $expect: (top: 10px, bottom: 10px, left: 20px, right: 20px);
-    @include assert-equal($test, $expect, 'Returns the two values mapped to top/bottom and left/right');
+    @include assert-equal($test, $expect);
+  }
 
-    // Testing three values
+  @include test('Maps three values to top, left/right and bottom') {
     $test: assert-directions(10px 20px 15px);
     $expect: (top: 10px, right: 20px, left: 20px, bottom: 15px);
-    @include assert-equal($test, $expect, 'Returns the three values mapped to top, left/right and bottom');
+    @include assert-equal($test, $expect);
+  }
 
-    // Testing four values
+  @include test('Maps four values to top, right, bottom and left') {
     $test: assert-directions(10px 20px 15px 5px);
     $expect: (top: 10px, right: 20px, bottom: 15px, left: 5px);
-    @include assert-equal($test, $expect, 'Returns the four values mapped to top, right, bottom and left');
+    @include assert-equal($test, $expect);
+  }
 
-    // Testing null values
+  @include test('Skips falsey values') {
     $test: assert-directions(10px null 5px);
     $expect: (top: 10px, bottom: 5px);
-    @include assert-equal($test, $expect, 'Returns the two values mapped to top and bottom');
+    @include assert-equal($test, $expect);
   }
 }

@@ -4,7 +4,7 @@
   "description": "Map values in clock-wise positions",
   "main": "_assert-directions.scss",
   "scripts": {
-    "test": "mocha test/test_sass.js"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
